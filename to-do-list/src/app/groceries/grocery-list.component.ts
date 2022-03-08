@@ -19,8 +19,4 @@ export class GroceryListComponent {
     constructor(service: GroceryListService) {
         this.groceries = service.getGroceries();
     }
-
-    testOnClick() {
-        console.log("You clicked button!");
-    }
 }
