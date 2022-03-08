@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GroceryListComponent } from '../groceries/grocery-list.component';
 
 // #itemName is the id
   // (keyup) is the event listener when typing
@@ -24,7 +25,7 @@ import { Component } from '@angular/core';
             (keyup)="getQuantityInput(itemQuantity.value)"
             placeholder="ex: 3"
         />
-        <button (click)="addItem(itemName.value, itemQuantity.value)">Submit</button>
+        <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
     `
 })
 
@@ -33,7 +34,13 @@ import { Component } from '@angular/core';
 
 export class InputFormComponent {
     title = "Input form to add item";
-    displayName=""
+    groceryName;
+    groceryQuantity;
+
+    constructor() {
+        this.groceryName = "";
+        this.groceryQuantity = "";
+    }
 
     getNameInput(name: string) {
         console.log("name: ", name);
@@ -43,7 +50,15 @@ export class InputFormComponent {
         console.log("quantity: ", quantity);
     }
 
-    addItem(name: string, quantity: string) {
-        alert("Name: " + name + ", " + "Quantity: " + quantity);
+    submitInput(name: string, quantity: string) {
+        this.groceryName = name;
+        this.groceryQuantity = quantity;
+
+        const itemObj = {
+            name: this.groceryName,
+            quantity: this.groceryQuantity
+        }
+
+        console.log("itemObj: ", itemObj);
     }
 }
