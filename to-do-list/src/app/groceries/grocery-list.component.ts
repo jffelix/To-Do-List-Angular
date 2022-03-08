@@ -9,6 +9,26 @@ import { Injectable } from '@angular/core';
 @Component({
     selector: 'grocery-list',
     template: `
+        <div *ngIf = "displayUpdateForm">
+            <h3>Update selected item</h3>
+            <p>Name</p>
+                <input 
+                    type="text"
+                    #updateName
+                    placeholder="update new name"
+                />
+            <p>Quantity</p>
+                <input 
+                    type="text"
+                    #updateQuantity
+                    placeholder="update new quantity"
+                />
+            <p></p>
+            <button (click)="submitUpdate()">Submit Update</button>
+            <p></p>
+            <button (click)="cancelUpdate()">Cancel Update</button>
+        </div>
+
         <h2>Grocery List</h2>
         <div *ngFor="let grocery of groceries; let i = index;">
             <h3>{{ grocery.item }}</h3>
@@ -22,7 +42,7 @@ import { Injectable } from '@angular/core';
 export class GroceryListComponent {
     title = "List of groceries";
     groceries;
-    toggleUpdateForm: boolean = true;
+    displayUpdateForm: boolean = false;
 
     constructor(service: GroceryListService) {
         this.groceries = service.getGroceries();
@@ -30,7 +50,16 @@ export class GroceryListComponent {
 
     // update item
     showUpdateForm() {
-        // this.updateForm.toggleUpdateForm();
+        // this.updateComponent.toggleUpdateForm();
+        this.displayUpdateForm = true;
+    }
+
+    submitUpdate() {
+        this.displayUpdateForm = false;    
+    }
+
+    cancelUpdate() {
+        this.displayUpdateForm = false;
     }
 
     // delete item

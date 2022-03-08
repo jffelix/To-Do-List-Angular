@@ -6,7 +6,7 @@ import { GroceryListComponent } from '../groceries/grocery-list.component';
 @Component({
     selector: 'update-form',
     template: `
-        <div *ngIf="displayUpdateForm">
+        <div *ngIf = "displayUpdateForm">
             <h3>Update selected item</h3>
             <p>Name</p>
                 <input 
@@ -21,9 +21,9 @@ import { GroceryListComponent } from '../groceries/grocery-list.component';
                     placeholder="update new quantity"
                 />
             <p></p>
-            <button>Submit Update</button>
+            <button (click)="submitUpdate()">Submit Update</button>
             <p></p>
-            <button>Cancel Update</button>
+            <button (click)="cancelUpdate()">Cancel Update</button>
         </div>
     `
 })
@@ -34,14 +34,23 @@ export class UpdateFormComponent {
     displayUpdateForm: boolean = false;
 
 
-    constructor(private groceryService: GroceryListService, groceryList: GroceryListComponent) {
+    constructor() {
         // this.groceryList = groceryService.getGroceries();
-        // this.displayUpdateForm = groceryList.showUpdateForm();
     }
 
     toggleUpdateForm() {
-        this.displayUpdateForm = true;
+        // console.log("Hello from UpdateFormComponent!");
+        console.log("displayUpdateForm: ", this.displayUpdateForm);
+        
+        this.displayUpdateForm = false;
     }
-    // create toggle method to change toggleUpdateForm to true
-    // add toggle method to Cancel Update button
+
+    submitUpdate() {
+        this.displayUpdateForm = false;    
+    }
+
+    cancelUpdate() {
+        this.displayUpdateForm = false;
+    }
+    
 }

@@ -20,7 +20,7 @@ import { UpdateFormComponent } from './inputForm/update-form.component';
     AppRoutingModule
   ],
   // Added GroceryListComponent as a provider for itself
-  providers: [GroceryListComponent, GroceryListService],
+  providers: [GroceryListComponent, GroceryListService, UpdateFormComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
