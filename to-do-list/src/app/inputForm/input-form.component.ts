@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { GroceryListService } from '../groceries/grocery-list.service';
 
 // #itemName is the id
-  // (keyup) is the event listener when typing
+  // (keyup) attribute is the event listener when typing
     // (keyup)="getNameInput(itemName.value)"
   // itemName.value is what you type in the input field
 // remember to label different id's for each input
@@ -15,14 +15,12 @@ import { GroceryListService } from '../groceries/grocery-list.service';
         <input 
             type="text" 
             #itemName
-            (keyup)="getNameInput(itemName.value)"
             placeholder="ex: oranges"
         />
         <p>Quantity</p>
         <input 
             type="text" 
             #itemQuantity
-            (keyup)="getQuantityInput(itemQuantity.value)"
             placeholder="ex: 3"
         />
         <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
@@ -42,10 +40,12 @@ export class InputFormComponent {
         this.groceryQuantity = "";
     }
 
+    // console.log name input
     getNameInput(name: string) {
         console.log("name: ", name);
     }
 
+    // console.log quantity input
     getQuantityInput(quantity: string) {
         console.log("quantity: ", quantity);
     }
