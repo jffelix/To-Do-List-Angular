@@ -29,12 +29,14 @@ import { Injectable } from '@angular/core';
             <button (click)="cancelUpdate()">Cancel Update</button>
         </div>
 
-        <h2>Grocery List</h2>
-        <div *ngFor="let grocery of groceries; let i = index;">
-            <h3>{{ grocery.item }}</h3>
-            <p>{{ grocery.quantity }}</p>
-            <button (click)="showUpdateForm()">Update</button>
-            <button (click)="deleteInput(i)">Delete</button>
+        <div *ngIf = "displaySelectedItem">
+            <h2>Grocery List</h2>
+            <div *ngFor="let grocery of groceries; let i = index;">
+                <h3>{{ grocery.item }}</h3>
+                <p>{{ grocery.quantity }}</p>
+                <button (click)="showUpdateForm()">Update</button>
+                <button (click)="deleteInput(i)">Delete</button>
+            </div>
         </div>
     `
 })
@@ -42,6 +44,7 @@ import { Injectable } from '@angular/core';
 export class GroceryListComponent {
     title = "List of groceries";
     groceries;
+    displaySelectedItem: boolean = true;
     displayUpdateForm: boolean = false;
 
     constructor(service: GroceryListService) {
@@ -52,14 +55,17 @@ export class GroceryListComponent {
     showUpdateForm() {
         // this.updateComponent.toggleUpdateForm();
         this.displayUpdateForm = true;
+        this.displaySelectedItem = false;
     }
 
     submitUpdate() {
-        this.displayUpdateForm = false;    
+        this.displayUpdateForm = false;
+        this.displaySelectedItem = true;    
     }
 
     cancelUpdate() {
         this.displayUpdateForm = false;
+        this.displaySelectedItem = true;
     }
 
     // delete item
