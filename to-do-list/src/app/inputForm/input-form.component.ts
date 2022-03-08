@@ -7,23 +7,24 @@ import { Component } from '@angular/core';
         <p>Name</p>
         <input 
             type="text" 
-            #box
-            (keyup)="getNameInput(box.value)"
+            #itemName
+            (keyup)="getNameInput(itemName.value)"
             placeholder="ex: oranges"
         />
         <p>Quantity</p>
         <input 
             type="text" 
-            #box
-            (keyup)="getQuantityInput(box.value)"
+            #itemQuantity
+            (keyup)="getQuantityInput(itemQuantity.value)"
             placeholder="ex: 3"
         />
-        <button (click)="addItem()">Submit</button>
+        <button (click)="addItem(itemName.value, itemQuantity.value)">Submit</button>
     `
 })
 
 export class InputFormComponent {
     title = "Input form to add item";
+    displayName=""
 
     getNameInput(name: string) {
         console.log("name: ", name);
@@ -33,7 +34,7 @@ export class InputFormComponent {
         console.log("quantity: ", quantity);
     }
 
-    addItem() {
-        alert("You clicked the Submit button!");
+    addItem(name: string, quantity: string) {
+        alert("Name: " + name + ", " + "Quantity: " + quantity);
     }
 }
