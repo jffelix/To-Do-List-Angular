@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 
+// #itemName is the id
+  // (keyup) is the event listener when typing
+    // (keyup)="getNameInput(itemName.value)"
+  // itemName.value is the value of the input field
+    // (keyup)="getNameInput(itemName.value)"
+// remember to label different id's for each input
+
 @Component({
     selector: 'input-form',
     template: `
@@ -22,9 +29,13 @@ import { Component } from '@angular/core';
     `
 })
 
+// method parameters need to define param type
+  // name: string, quantity: string
+
 export class InputFormComponent {
     title = "Input form to add item";
     displayName=""
+
 
     getNameInput(name: string) {
         console.log("name: ", name);
