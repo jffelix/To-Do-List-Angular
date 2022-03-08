@@ -8,6 +8,8 @@ import { GroceryListService } from './grocery-list.service';
         <ul *ngFor="let grocery of groceries">
             <h3>{{ grocery.item }}</h3>
             <p>{{ grocery.quantity }}</p>
+            <button>Update</button>
+            <button>Delete</button>
         </ul>
     `
 })
