@@ -10,21 +10,23 @@ import { GroceryListService } from '../groceries/grocery-list.service';
 @Component({
     selector: 'input-form',
     template: `
-        <h3>Add new item</h3>
-        <p>Name</p>
-        <input 
-            type="text" 
-            #itemName
-            placeholder="ex: oranges"
-        />
-        <p>Quantity</p>
-        <input 
-            type="text" 
-            #itemQuantity
-            placeholder="ex: 3"
-        />
-        <p></p>
-        <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
+        <div>
+            <h3>Add new item</h3>
+            <p>Name</p>
+                <input 
+                    type="text" 
+                    #itemName
+                    placeholder="ex: oranges"
+                />
+            <p>Quantity</p>
+                <input 
+                    type="text" 
+                    #itemQuantity
+                    placeholder="ex: 3"
+                />
+            <p></p>
+            <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
+        </div>
     `
 })
 
