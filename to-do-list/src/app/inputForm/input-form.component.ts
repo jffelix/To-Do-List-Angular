@@ -57,5 +57,7 @@ export class InputFormComponent {
         }
 
         this.groceryService.addInput(name, quantity);
+
+        // figure out how to clear input fields after input is submitted and entry is added
     }
 }
