@@ -57,6 +57,12 @@ export class GroceryListComponent {
     }
 
     submitUpdate(index: number, name: string, quantity: string) {
+
+        if (name.length === 0 || quantity.length === 0) {
+            alert("Please fill in both fields.");
+            return;
+        }
+
         this.service.updateInput(index, name, quantity);
 
         this.displayUpdateForm = false;
