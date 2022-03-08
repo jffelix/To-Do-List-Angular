@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GroceryListComponent } from '../groceries/grocery-list.component';
+import { GroceryListService } from '../groceries/grocery-list.service';
 
 // #itemName is the id
   // (keyup) is the event listener when typing
@@ -37,7 +37,7 @@ export class InputFormComponent {
     groceryName;
     groceryQuantity;
 
-    constructor() {
+    constructor(private groceryService: GroceryListService) {
         this.groceryName = "";
         this.groceryQuantity = "";
     }
@@ -51,14 +51,6 @@ export class InputFormComponent {
     }
 
     submitInput(name: string, quantity: string) {
-        this.groceryName = name;
-        this.groceryQuantity = quantity;
-
-        const itemObj = {
-            item: this.groceryName,
-            quantity: this.groceryQuantity
-        }
-
-        console.log("itemObj: ", itemObj);
+        this.groceryService.addInput(name, quantity);
     }
 }

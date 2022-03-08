@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GroceryListComponent } from './groceries/grocery-list.component';
 import { GroceryListService } from './groceries/grocery-list.service';
-// import { InputFormComponent } from './inputForm/input-form.component';
+import { InputFormComponent } from './inputForm/input-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // InputFormComponent,
+    InputFormComponent,
     GroceryListComponent
   ],
   imports: [

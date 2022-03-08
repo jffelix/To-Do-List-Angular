@@ -1,19 +1,54 @@
+import { GroceryItem } from '../models/groceryItem'
 
 export class GroceryListService {
+
+    private groceryList: GroceryItem[] = [
+        {
+            item: "apples",
+            quantity: 4
+        },
+        {
+            item: "strawberries",
+            quantity: 2
+        },
+        {
+            item: "bananas",
+            quantity: 5
+        }
+    ]
+
     getGroceries() {
-        return [
-            {
-                item: "apples",
-                quantity: 4
-            },
-            {
-                item: "strawberries",
-                quantity: 2
-            },
-            {
-                item: "bananas",
-                quantity: 5
-            }
-        ]
+        return this.groceryList;
+    }
+
+    addInput(name: string, quantity: string) {
+
+        const itemObj = {
+            item: name,
+            quantity: Number(quantity)
+        }
+        this.groceryList.push(itemObj);
     }
 }
+
+
+// // BACKUP CODE
+
+// export class GroceryListService {
+//     getGroceries() {
+//         return [
+//             {
+//                 item: "apples",
+//                 quantity: 4
+//             },
+//             {
+//                 item: "strawberries",
+//                 quantity: 2
+//             },
+//             {
+//                 item: "bananas",
+//                 quantity: 5
+//             }
+//         ]
+//     }
+// }
