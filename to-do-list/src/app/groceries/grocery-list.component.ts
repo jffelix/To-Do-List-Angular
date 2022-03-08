@@ -24,7 +24,7 @@ import { Injectable } from '@angular/core';
                     placeholder="update new quantity"
                 />
             <p></p>
-            <button (click)="submitUpdate()">Submit Update</button>
+            <button (click)="submitUpdate(updateName.value, updateQuantity.value)">Submit Update</button>
             <p></p>
             <button (click)="cancelUpdate()">Cancel Update</button>
         </div>
@@ -47,18 +47,19 @@ export class GroceryListComponent {
     displaySelectedItem: boolean = true;
     displayUpdateForm: boolean = false;
 
-    constructor(service: GroceryListService) {
+    constructor(private service: GroceryListService) {
         this.groceries = service.getGroceries();
     }
 
     // update item
     showUpdateForm() {
-        // this.updateComponent.toggleUpdateForm();
         this.displayUpdateForm = true;
         this.displaySelectedItem = false;
     }
 
-    submitUpdate() {
+    submitUpdate(name: string, quantity: string) {
+        this.service.updateInput(name, quantity);
+
         this.displayUpdateForm = false;
         this.displaySelectedItem = true;    
     }
