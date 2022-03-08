@@ -1,9 +1,5 @@
 import { GroceryItem } from '../models/groceryItem';
-import { Injectable } from '@angular/core';
 
-// Injectable({
-//     providedIn: "root"
-// });
 export class GroceryListService {
 
     private groceryList: GroceryItem[] = [

@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-import { UpdateFormComponent } from '../inputForm/update-form.component';
 import { GroceryListService } from './grocery-list.service';
-import { Injectable } from '@angular/core';
 
-// Injectable({
-//     providedIn: "root"
-// })
 @Component({
     selector: 'grocery-list',
     template: `
