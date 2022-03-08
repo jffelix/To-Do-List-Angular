@@ -24,7 +24,7 @@ import { Injectable } from '@angular/core';
                     placeholder="update new quantity"
                 />
             <p></p>
-            <button (click)="submitUpdate(updateName.value, updateQuantity.value)">Submit Update</button>
+            <button (click)="submitUpdate(selectedIndex, updateName.value, updateQuantity.value)">Submit Update</button>
             <p></p>
             <button (click)="cancelUpdate()">Cancel Update</button>
         </div>
@@ -34,7 +34,7 @@ import { Injectable } from '@angular/core';
             <div *ngFor="let grocery of groceries; let i = index;">
                 <h3>{{ grocery.item }}</h3>
                 <p>{{ grocery.quantity }}</p>
-                <button (click)="showUpdateForm()">Update</button>
+                <button (click)="showUpdateForm(i)">Update</button>
                 <button (click)="deleteInput(i)">Delete</button>
             </div>
         </div>
@@ -44,6 +44,7 @@ import { Injectable } from '@angular/core';
 export class GroceryListComponent {
     title = "List of groceries";
     groceries;
+    selectedIndex: number = 0;
     displaySelectedItem: boolean = true;
     displayUpdateForm: boolean = false;
 
@@ -52,13 +53,16 @@ export class GroceryListComponent {
     }
 
     // update item
-    showUpdateForm() {
+    showUpdateForm(index: number) {
+        this.selectedIndex = index;
+        console.log("selectedIndex: ", this.selectedIndex);
+
         this.displayUpdateForm = true;
         this.displaySelectedItem = false;
     }
 
-    submitUpdate(name: string, quantity: string) {
-        this.service.updateInput(name, quantity);
+    submitUpdate(index: number, name: string, quantity: string) {
+        this.service.updateInput(index, name, quantity);
 
         this.displayUpdateForm = false;
         this.displaySelectedItem = true;    

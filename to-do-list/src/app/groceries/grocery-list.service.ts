@@ -34,12 +34,13 @@ export class GroceryListService {
         this.groceryList.push(itemObj);
     }
 
-    updateInput(name: string, quantity: string) {
+    updateInput(index: number, name: string, quantity: string) {
         const updateObj = {
             item: name,
             quantity: Number(quantity)
         }
-        console.log("updateObj: ", updateObj);
+        
+        this.groceryList[index] = updateObj;
     }
 }
 
