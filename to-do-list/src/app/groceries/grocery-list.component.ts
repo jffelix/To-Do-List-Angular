@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { UpdateFormComponent } from '../inputForm/update-form.component';
 import { GroceryListService } from './grocery-list.service';
+import { Injectable } from '@angular/core';
 
+// Injectable({
+//     providedIn: "root"
+// })
 @Component({
     selector: 'grocery-list',
     template: `
@@ -17,7 +22,7 @@ import { GroceryListService } from './grocery-list.service';
 export class GroceryListComponent {
     title = "List of groceries";
     groceries;
-    toggleUpdateForm: boolean = false
+    toggleUpdateForm: boolean = true;
 
     constructor(service: GroceryListService) {
         this.groceries = service.getGroceries();
@@ -25,7 +30,7 @@ export class GroceryListComponent {
 
     // update item
     showUpdateForm() {
-        this.toggleUpdateForm = true;
+        // this.updateForm.toggleUpdateForm();
     }
 
     // delete item
