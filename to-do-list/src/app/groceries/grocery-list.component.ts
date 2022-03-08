@@ -20,15 +20,15 @@ import { GroceryListService } from './grocery-list.service';
             (keyup)="getQuantityInput(itemQuantity.value)"
             placeholder="ex: 3"
         />
-        <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
+        <button (click)="addInput(itemName.value, itemQuantity.value)">Submit</button>
 
         <h2>Grocery List</h2>
-        <ul *ngFor="let grocery of groceries">
+        <div *ngFor="let grocery of groceries; let i = index">
             <h3>{{ grocery.item }}</h3>
             <p>{{ grocery.quantity }}</p>
             <button>Update</button>
-            <button>Delete</button>
-        </ul>
+            <button (click)="deleteInput(i)">Delete</button>
+        </div>
     `
 })
 
@@ -54,13 +54,17 @@ export class GroceryListComponent {
         console.log("quantity: ", quantity);
     }
 
-    submitInput(name: string, quantity: string) {
+    addInput(name: string, quantity: string) {
         const itemObj = {
             item: name,
             quantity: Number(quantity)
         }
 
         this.groceries.push(itemObj);
+    }
+
+    deleteInput(id: number) {
+        console.log("id: " + id);
     }
 }
 

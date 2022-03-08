@@ -55,7 +55,7 @@ export class InputFormComponent {
         this.groceryQuantity = quantity;
 
         const itemObj = {
-            name: this.groceryName,
+            item: this.groceryName,
             quantity: this.groceryQuantity
         }
 
