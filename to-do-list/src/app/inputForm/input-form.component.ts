@@ -23,6 +23,7 @@ import { GroceryListService } from '../groceries/grocery-list.service';
             #itemQuantity
             placeholder="ex: 3"
         />
+        <p></p>
         <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
     `
 })
@@ -32,12 +33,8 @@ import { GroceryListService } from '../groceries/grocery-list.service';
 
 export class InputFormComponent {
     title = "Input form to add item";
-    groceryName;
-    groceryQuantity;
 
     constructor(private groceryService: GroceryListService) {
-        this.groceryName = "";
-        this.groceryQuantity = "";
     }
 
     // console.log name input
@@ -51,6 +48,12 @@ export class InputFormComponent {
     }
 
     submitInput(name: string, quantity: string) {
+
+        if (name.length === 0 || quantity.length === 0) {
+            alert("Please fill in both fields.");
+            return;
+        }
+
         this.groceryService.addInput(name, quantity);
     }
 }
