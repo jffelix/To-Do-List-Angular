@@ -23,7 +23,7 @@ import { GroceryListService } from './grocery-list.service';
         <button (click)="addInput(itemName.value, itemQuantity.value)">Submit</button>
 
         <h2>Grocery List</h2>
-        <div *ngFor="let grocery of groceries; let i = index">
+        <div *ngFor="let grocery of groceries; let i = index;">
             <h3>{{ grocery.item }}</h3>
             <p>{{ grocery.quantity }}</p>
             <button>Update</button>
@@ -64,7 +64,7 @@ export class GroceryListComponent {
     }
 
     deleteInput(id: number) {
-        console.log("id: " + id);
+        this.groceries.splice(id, 1);
     }
 }
 
