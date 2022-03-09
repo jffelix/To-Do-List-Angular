@@ -27,7 +27,8 @@ import { GroceryListService } from '../groceries/grocery-list.service';
             <p></p>
             <button (click)="submitInput(itemName.value, itemQuantity.value)">Submit</button>
         </div>
-    `
+    `,
+    styleUrls: ['../app.component.css']
 })
 
 // method parameters need to define param type

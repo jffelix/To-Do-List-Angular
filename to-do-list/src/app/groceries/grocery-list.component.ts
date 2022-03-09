@@ -33,7 +33,8 @@ import { GroceryListService } from './grocery-list.service';
                 <button (click)="deleteInput(i)">Delete</button>
             </div>
         </div>
-    `
+    `,
+    styleUrls: ['../app.component.css']
 })
 
 export class GroceryListComponent {
